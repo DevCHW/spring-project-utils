@@ -1,0 +1,27 @@
+spring:
+  output:
+      ansi:
+        enabled: ALWAYS
+  ### Database ###
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: #{username}
+    password: #{password}
+  ### JPA ###
+  jpa:
+    hibernate:
+      ddl-auto: create #validate
+    properties:
+      hibernate:
+        default_batch_fetch_size : 1000
+        #        show_sql: true
+        format_sql: true
+  ### MVC ###
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
